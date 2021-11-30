@@ -22,6 +22,7 @@ renv_remotes_resolve <- function(spec, latest = FALSE) {
     return(spec)
 
   # check for URLs
+  spec <- sub("^url::", "", spec)
   if (grepl("^(?:file|https?)://", spec))
     return(renv_remotes_resolve_url(spec, quiet = TRUE))
 
